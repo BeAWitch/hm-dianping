@@ -30,7 +30,7 @@ public class VoucherController {
      */
     @PostMapping
     public Result addVoucher(@RequestBody Voucher voucher) {
-        voucherService.save(voucher);
+        voucherService.addSeckillVoucher(voucher);
         return Result.ok(voucher.getId());
     }
 

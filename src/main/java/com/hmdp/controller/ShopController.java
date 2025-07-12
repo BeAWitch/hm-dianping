@@ -97,4 +97,22 @@ public class ShopController {
         // 返回数据
         return Result.ok(page.getRecords());
     }
+
+    /**
+     * 根据商铺类型 id 查询商铺信息
+     * @param typeId 商铺类型 id
+     * @param current 页码
+     * @param x 经度
+     * @param y 维度
+     * @return 商铺列表
+     */
+    @GetMapping("/of/type")
+    public Result queryShopByType(
+            @RequestParam("typeId") Integer typeId,
+            @RequestParam(value = "current", defaultValue = "1") Integer current,
+            @RequestParam(value = "x", required = false) Double x,
+            @RequestParam(value = "y", required = false) Double y
+    ) {
+        return shopService.queryShopByType(typeId, current, x, y);
+    }
 }
